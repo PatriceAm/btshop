@@ -4,12 +4,14 @@ import "./Shop.css";
 const Shop = () => {
   const store = [
     {
+      id: 1,
       name: "ZEWA Toilet Paper",
       price: "0.65",
       image: "/assets/toilet_paper.png",
       type: "roll",
     },
     {
+      id: 2,
       name: "TEMPO Face Mask",
       price: "2.50",
       image: "/assets/face_mask.png",

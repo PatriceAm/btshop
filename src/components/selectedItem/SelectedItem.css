@@ -1,0 +1,115 @@
+.selected_collector {
+  background-color: white;
+  margin: auto;
+  width: 1000px;
+  height: 600px;
+  margin-top: 10rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0) 85%,
+    rgba(61, 80, 149, 1) 95%
+  );
+  border: 2px solid silver;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.selected_container {
+  width: 350px;
+  height: 600px;
+  margin-left: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  color: grey;
+}
+
+.selected_container h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  /* color: whitesmoke; */
+  color: grey;
+}
+
+.selected_container img {
+  height: 55%;
+}
+
+.selected_container span {
+  font-size: 2rem;
+  color: rgba(61, 80, 149, 1);
+}
+
+.selected_options {
+  color: rgba(61, 80, 149, 1);
+  margin-left: unset;
+  margin-right: 6rem;
+  height: 500px;
+  align-items: flex-start;
+}
+
+.selected_decription {
+  width: 300px;
+  text-align: left;
+}
+
+.selected_discount span {
+  color: grey;
+  text-decoration: line-through;
+  font-size: 1.2rem;
+}
+
+.selected_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 350px;
+}
+
+.selected_buttons button {
+  cursor: pointer;
+}
+
+.selected_trio {
+  border-radius: 10px;
+}
+
+.selected_trio button {
+  border: none;
+  font-size: 1.5rem;
+}
+
+.trio_left {
+  border-radius: 10px 0px 0px 10px;
+  margin-right: 2px;
+}
+.trio_right {
+  border-radius: 0px 10px 10px 0px;
+  margin-left: 2px;
+}
+.selected_trio button {
+  background-color: whitesmoke;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+}
+
+.add_button {
+  background: url(../../assets/empty-cart.svg) no-repeat, rgba(61, 80, 149, 1);
+  background-size: 17%;
+  background-position: left 10px bottom 2px;
+  color: whitesmoke;
+  height: 2.5rem;
+  width: 12rem;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  padding-left: 2rem;
+}
+
+.add_button:hover {
+  filter: brightness(1.3);
+}

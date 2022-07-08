@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 import "./Item.css";
 // import ima from "./assets/toilet_paper.png";
 
@@ -9,7 +11,9 @@ const Item = ({prod}) => {
         Price: £<span>{prod.price}</span>/{prod.type}
       </h3>
       {/* <img src={ima}></img> */}
-      <h2>{prod.name}</h2>
+      <Link to={`/shop/${prod.id}`}>
+        <h2>{prod.name}</h2>
+      </Link>
     </div>
   );
 };
