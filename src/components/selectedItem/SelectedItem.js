@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {useParams} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 import "./SelectedItem.css";
 
@@ -7,28 +8,7 @@ const SelectedItem = () => {
   const [quantity, setQuantity] = useState(0);
 
   const id = useParams().id;
-  const store = [
-    {
-      id: 1,
-      name: "ZEWA Toilet Paper",
-      price: "0.65",
-      image: "/assets/toilet_paper.png",
-      type: "roll",
-      decription: "Triple layered, perfumed, premium quality toilet paper.",
-      discount: "Buy six rolls for £3.25 ",
-      withoutDiscount: " (£3.90)",
-    },
-    {
-      id: 2,
-      name: "TEMPO Face Mask",
-      price: "2.50",
-      image: "/assets/face_mask.png",
-      type: "each",
-      decription: "Pack of 10 medical face masks",
-      discount: "Buy 2 for £4 ",
-      withoutDiscount: " (£5)",
-    },
-  ];
+  const store = useSelector((state) => state.inStore);
   const prod = store.find((prod) => Number(id) === prod.id);
   return (
     <div className="selected_collector">

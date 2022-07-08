@@ -1,23 +1,9 @@
+import {useSelector} from "react-redux";
 import Item from "../item/Item";
 import "./Shop.css";
 
 const Shop = () => {
-  const store = [
-    {
-      id: 1,
-      name: "ZEWA Toilet Paper",
-      price: "0.65",
-      image: "/assets/toilet_paper.png",
-      type: "roll",
-    },
-    {
-      id: 2,
-      name: "TEMPO Face Mask",
-      price: "2.50",
-      image: "/assets/face_mask.png",
-      type: "each",
-    },
-  ];
+  const store = useSelector((state) => state.inStore);
 
   return (
     <div className="shop_container">
