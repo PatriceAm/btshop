@@ -1,0 +1,36 @@
+.item_container {
+  background-color: white;
+  width: 250px;
+  height: 400px;
+  margin: 3rem 2rem;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 0, 0, 0) 80%,
+    rgba(61, 80, 149, 1) 90%
+  );
+  border: 2px solid silver;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: grey;
+  cursor: pointer;
+}
+
+.item_container h2 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: whitesmoke;
+}
+
+.item_container img {
+  margin-top: 3rem;
+  height: 55%;
+}
+
+.item_container span {
+  font-size: 2rem;
+  color: rgba(61, 80, 149, 1);
+}

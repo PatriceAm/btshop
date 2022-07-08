@@ -1,0 +1,30 @@
+.nav_container {
+  background: rgba(61, 80, 149, 1);
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: whitesmoke;
+  border-bottom: 0.4rem solid silver;
+  font-weight: 100;
+  font-size: 1.3rem;
+  letter-spacing: 0.2rem;
+}
+
+.nav_container ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+}
+
+.nav_container li {
+  list-style-type: none;
+  cursor: pointer;
+}
+
+.nav_container a {
+  text-decoration: none;
+  color: white;
+}
