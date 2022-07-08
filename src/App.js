@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import Navigation from "./components/navigation/Navigation";
 import Shop from "./components/shop/Shop";
 import Home from "./components/home/Home";
-import Basket from "./components/summary/Summary";
+import Basket from "./components/summary/Basket";
 import SelectedItem from "./components/selectedItem/SelectedItem";
 import {fillStoreR} from "./reducers/storeReducer";
 
@@ -23,6 +23,8 @@ const App = () => {
       decription: "Triple layered, perfumed, premium quality toilet paper.",
       discount: "Buy six rolls for £3.25 ",
       withoutDiscount: " (£3.90)",
+      discApplyAt: 6,
+      discPrice: 0.54167,
     },
     {
       id: 2,
@@ -33,6 +35,8 @@ const App = () => {
       decription: "Pack of 10 medical face masks",
       discount: "Buy 2 for £4 ",
       withoutDiscount: " (£5)",
+      discApplyAt: 2,
+      discPrice: 2,
     },
   ];
 

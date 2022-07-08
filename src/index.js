@@ -5,11 +5,13 @@ import {configureStore} from "@reduxjs/toolkit";
 import {BrowserRouter as Router} from "react-router-dom";
 import App from "./App";
 import inStoreReducer from "./reducers/storeReducer";
+import inBasketReducer from "./reducers/basketReducer";
 import "./index.css";
 
 const store = configureStore({
   reducer: {
     inStore: inStoreReducer,
+    inBasket: inBasketReducer,
   },
 });
 

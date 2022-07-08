@@ -1,15 +1,45 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import {useSelector} from "react-redux";
+import {useSelector, useDispatch} from "react-redux";
+
+import {fillBasketR} from "../../reducers/basketReducer";
 
 import "./SelectedItem.css";
 
 const SelectedItem = () => {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(0);
-
   const id = useParams().id;
   const store = useSelector((state) => state.inStore);
+  const inCart = useSelector((state) => state.inBasket);
+  const [basketToSend, setBasketToSend] = useState();
   const prod = store.find((prod) => Number(id) === prod.id);
+
+  useEffect(() => {
+    const itemInBasket = {id: prod.id, name: prod.name, qty: quantity};
+    setBasketToSend(itemInBasket);
+  }, [quantity]);
+
+  const addToCart = async () => {
+    let updatedBasket = [];
+    const alreadyIn = inCart.find((prod) => prod.id === basketToSend.id);
+
+    if (inCart.length === 0 || !alreadyIn) {
+      updatedBasket = [...inCart, basketToSend];
+    } else {
+      updatedBasket = inCart.map((prod) =>
+        prod.id === basketToSend.id
+          ? {...basketToSend, qty: prod.qty + basketToSend.qty}
+          : prod
+      );
+    }
+
+    setQuantity(0);
+    // console.log("addToCartbol megy", updatedBasket);
+    dispatch(fillBasketR(updatedBasket));
+  };
+
+  console.log("kosar", inCart);
   return (
     <div className="selected_collector">
       <div className="selected_container">
@@ -41,7 +71,9 @@ const SelectedItem = () => {
               +
             </button>
           </div>
-          <button className="add_button">Add to cart</button>
+          <button className="add_button" onClick={addToCart}>
+            Add to cart
+          </button>
         </div>
       </div>
     </div>

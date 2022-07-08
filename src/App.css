@@ -8,3 +8,7 @@
   width: 80vw;
   height: 60vh;
 }
+
+.lined {
+  border-bottom: 1px solid grey;
+}
