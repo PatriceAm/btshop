@@ -1,12 +1,12 @@
-import {useState} from "react";
 import {useSelector} from "react-redux";
 import "./Basket.css";
 
 const Basket = () => {
   const inBasket = useSelector((state) => state.inBasket);
-  // const [totalBasketPay, setTotalBasketPay] = useState(0);
+
   let totalBasketPay = 0;
 
+  console.log("itt", inBasket);
   const basketSummary = inBasket.map((item) => {
     const itemTotal = (Number(item.price) * Number(item.qty)).toFixed(2);
 
@@ -21,11 +21,8 @@ const Basket = () => {
     totalBasketPay = totalBasketPay + finalPrice;
     return (
       <tr key={item.id}>
-        <td>
-          {`${item.qty} `}
-          {item.name}
-        </td>
-        <td className="align_right">£{item.price}</td>{" "}
+        <td>{`${item.qty} ${item.name}`}</td>
+        <td className="align_right">£{item.price}</td>
         <td className="align_right">£{finalPrice}</td>
         <td className="align_right">£{discValue}</td>
       </tr>
@@ -51,7 +48,7 @@ const Basket = () => {
             <td>Total Cost</td>
             <td>Discount</td>
           </tr>
-          <>{basketSummary}</>
+          {basketSummary}
           <tr>
             <td className="lined"></td>
             <td className="lined"></td>
