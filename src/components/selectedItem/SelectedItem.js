@@ -16,7 +16,14 @@ const SelectedItem = () => {
   const prod = store.find((prod) => Number(id) === prod.id);
 
   useEffect(() => {
-    const itemInBasket = {id: prod.id, name: prod.name, qty: quantity};
+    const itemInBasket = {
+      id: prod.id,
+      price: prod.price,
+      name: prod.name,
+      qty: quantity,
+      discApplyAt: prod.discApplyAt,
+      discPrice: prod.discPrice,
+    };
     setBasketToSend(itemInBasket);
   }, [quantity]);
 
@@ -39,7 +46,7 @@ const SelectedItem = () => {
     dispatch(fillBasketR(updatedBasket));
   };
 
-  console.log("kosar", inCart);
+  // console.log("kosar selector", inCart);
   return (
     <div className="selected_collector">
       <div className="selected_container">

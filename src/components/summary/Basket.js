@@ -1,30 +1,45 @@
 import {useState} from "react";
+import {useSelector} from "react-redux";
 import "./Basket.css";
 
 const Basket = () => {
-  const basketContent = [
-    {
-      id: 1,
-      name: "ZEWA Toilet Paper",
-      price: 0.65,
-      type: "roll",
-      discount: "Buy six rolls for £3.25 ",
-      discApplyAt: 6,
-      discPrice: 0.54167,
-    },
-    {
-      id: 2,
-      name: "TEMPO Face Mask",
-      price: 2.5,
-      type: "each",
-      discount: "Buy 2 for £4 ",
-      discApplyAt: 2,
-      discPrice: 2,
-    },
-  ];
+  const inBasket = useSelector((state) => state.inBasket);
+  // const [totalBasketPay, setTotalBasketPay] = useState(0);
+  let totalBasketPay = 0;
 
-  const [boughtTP, setBoughtTP] = useState();
+  const basketSummary = inBasket.map((item) => {
+    const itemTotal = (Number(item.price) * Number(item.qty)).toFixed(2);
 
+    const discPriceQty =
+      Math.floor(item.qty / item.discApplyAt) * item.discApplyAt;
+
+    const discValue = (
+      discPriceQty * item.price -
+      discPriceQty * item.discPrice
+    ).toFixed(2);
+    const finalPrice = itemTotal - discValue;
+    totalBasketPay = totalBasketPay + finalPrice;
+    return (
+      <tr key={item.id}>
+        <td>
+          {`${item.qty} `}
+          {item.name}
+        </td>
+        <td className="align_right">£{item.price}</td>{" "}
+        <td className="align_right">£{finalPrice}</td>
+        <td className="align_right">£{discValue}</td>
+      </tr>
+    );
+  });
+
+  const totalToPay = (
+    <tr>
+      <td>Total to pay:</td>
+      <td></td>
+      <td className="align_right">£{totalBasketPay}</td>
+      <td></td>
+    </tr>
+  );
   return (
     <div className="basket_container">
       <h1>Your basket content:</h1>
@@ -36,30 +51,14 @@ const Basket = () => {
             <td>Total Cost</td>
             <td>Discount</td>
           </tr>
-          <tr>
-            <td>2 Face mask</td>
-            <td>£2.50</td>
-            <td>£5</td>
-            <td>£1</td>
-          </tr>
-          <tr>
-            <td>7 Toilet Paper</td>
-            <td>£0.65</td>
-            <td>£4.55</td>
-            <td>£0.65</td>
-          </tr>
+          <>{basketSummary}</>
           <tr>
             <td className="lined"></td>
             <td className="lined"></td>
             <td className="lined"></td>
             <td className="lined"></td>
           </tr>
-          <tr>
-            <td>Total to pay:</td>
-            <td></td>
-            <td></td>
-            <td>£7.90</td>
-          </tr>
+          {totalToPay}
         </tbody>
       </table>
     </div>
