@@ -47,7 +47,6 @@ const SelectedItem = () => {
       dispatch(fillBasketR(updatedBasket));
     }
   };
-
   return (
     <div>
       <div className="selected_collector">
