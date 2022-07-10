@@ -10,7 +10,6 @@ const Item = ({prod}) => {
       <h3>
         Price: £<span>{prod.price}</span>/{prod.type}
       </h3>
-      {/* <img src={ima}></img> */}
       <Link to={`/shop/${prod.id}`}>
         <h2>{prod.name}</h2>
       </Link>

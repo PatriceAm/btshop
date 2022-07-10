@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import {useParams} from "react-router-dom";
+import {useParams, Link} from "react-router-dom";
 import {useSelector, useDispatch} from "react-redux";
 
 import {fillBasketR} from "../../reducers/basketReducer";
@@ -25,6 +25,7 @@ const SelectedItem = () => {
       discPrice: prod.discPrice,
     };
     setBasketToSend(itemInBasket);
+    // eslint-disable-next-line
   }, [quantity]);
 
   const addToCart = async () => {
@@ -42,46 +43,56 @@ const SelectedItem = () => {
     }
 
     setQuantity(0);
-    // console.log("addToCartbol megy", updatedBasket);
-    dispatch(fillBasketR(updatedBasket));
+    if (basketToSend.qty > 0) {
+      dispatch(fillBasketR(updatedBasket));
+    }
   };
 
-  // console.log("kosar selector", inCart);
   return (
-    <div className="selected_collector">
-      <div className="selected_container">
-        <img src={prod.image} alt="product" />
-      </div>
-      <div className="selected_options selected_container">
-        <h1>{prod.name}</h1>
-        <h3 className="selected_decription">{prod.decription}</h3>
-        <h3 className="selected_discount">
-          {prod.discount}
-          <span>{prod.withoutDiscount}</span>
-        </h3>
-        <h3>
-          <span>£{prod.price}</span> /{prod.type}
-        </h3>
-        <div className="selected_buttons">
-          <div className="selected_trio">
-            <button
-              className="trio_left"
-              onClick={() => setQuantity(quantity >= 1 ? quantity - 1 : 0)}
-            >
-              -
-            </button>
-            <button>{quantity}</button>
-            <button
-              className="trio_right"
-              onClick={() => setQuantity(quantity + 1)}
-            >
-              +
+    <div>
+      <div className="selected_collector">
+        <div className="selected_container">
+          <img src={prod.image} alt="product" />
+        </div>
+        <div className="selected_options selected_container">
+          <h1>{prod.name}</h1>
+          <h3 className="selected_decription">{prod.decription}</h3>
+          <h3 className="selected_discount">
+            {prod.discount}
+            <span>{prod.withoutDiscount}</span>
+          </h3>
+          <h3>
+            <span>£{prod.price}</span> /{prod.type}
+          </h3>
+          <div className="selected_buttons">
+            <div className="selected_trio">
+              <button
+                className="trio_left"
+                onClick={() => setQuantity(quantity >= 1 ? quantity - 1 : 0)}
+              >
+                -
+              </button>
+              <button>{quantity}</button>
+              <button
+                className="trio_right"
+                onClick={() => setQuantity(quantity + 1)}
+              >
+                +
+              </button>
+            </div>
+            <button className="add_button" onClick={addToCart}>
+              Add to cart
             </button>
           </div>
-          <button className="add_button" onClick={addToCart}>
-            Add to cart
-          </button>
         </div>
+      </div>
+      <div className="link_container">
+        <Link to="/shop" className="shop_link">
+          Back to selection
+        </Link>
+        <Link to="/basket" className="shop_link">
+          To the Basket
+        </Link>
       </div>
     </div>
   );

@@ -14,8 +14,14 @@ export const {fillBasket} = basketSlice.actions;
 
 export const fillBasketR = (basket) => {
   return async (dispatch) => {
-    console.log("thunkba", basket);
     dispatch(fillBasket(basket));
+  };
+};
+
+export const cleanBasketR = (basket) => {
+  const updatedBasket = basket.filter((item) => item.qty > 0);
+  return async (dispatch) => {
+    dispatch(fillBasket(updatedBasket));
   };
 };
 

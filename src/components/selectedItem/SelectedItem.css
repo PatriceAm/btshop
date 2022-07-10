@@ -118,3 +118,25 @@
   text-align: right;
   border-left: 1px solid black;
 }
+
+.link_container {
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 auto;
+  margin-top: 1rem;
+}
+
+.shop_link {
+  background-color: rgba(61, 80, 149, 1);
+  padding: 0.3rem;
+  border-radius: 5px;
+  color: white;
+  border: 1px solid black;
+  text-decoration: none;
+}
+
+.shop_link:hover {
+  filter: brightness(1.3);
+}

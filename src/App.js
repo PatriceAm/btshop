@@ -1,44 +1,19 @@
+import {useEffect} from "react";
 import {Routes, Route} from "react-router-dom";
 import {useDispatch} from "react-redux";
 
 import Navigation from "./components/navigation/Navigation";
 import Shop from "./components/shop/Shop";
 import Home from "./components/home/Home";
-import Basket from "./components/summary/Basket";
+import Basket from "./components/Basket/Basket";
 import SelectedItem from "./components/selectedItem/SelectedItem";
 import {fillStoreR} from "./reducers/storeReducer";
-
 import "./App.css";
-import {useEffect} from "react";
+import data from "./data.json";
 
 const App = () => {
   const dispatch = useDispatch();
-  const initialStore = [
-    {
-      id: 1,
-      name: "ZEWA Toilet Paper",
-      price: "0.65",
-      image: "/assets/toilet_paper.png",
-      type: "roll",
-      decription: "Triple layered, perfumed, premium quality toilet paper.",
-      discount: "Buy six rolls for £3.25 ",
-      withoutDiscount: " (£3.90)",
-      discApplyAt: 6,
-      discPrice: 0.54167,
-    },
-    {
-      id: 2,
-      name: "TEMPO Face Mask",
-      price: "2.50",
-      image: "/assets/face_mask.png",
-      type: "each",
-      decription: "Pack of 10 medical face masks",
-      discount: "Buy 2 for £4 ",
-      withoutDiscount: " (£5)",
-      discApplyAt: 2,
-      discPrice: 2,
-    },
-  ];
+  const initialStore = data.initialStore;
 
   useEffect(() => {
     dispatch(fillStoreR(initialStore));

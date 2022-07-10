@@ -24,6 +24,10 @@
   cursor: pointer;
 }
 
+.nav_container a:hover {
+  color: silver;
+}
+
 .nav_container a {
   text-decoration: none;
   color: white;
