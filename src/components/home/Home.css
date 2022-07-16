@@ -3,6 +3,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 15rem;
   color: rgba(61, 80, 149, 1);
+  height: 100vh;
+  margin: 0 auto;
+  text-align: center;
 }

@@ -7,7 +7,7 @@ const Item = ({prod}) => {
   return (
     <div className="item_container">
       <img src={prod.image} alt="product" />
-      <h3>
+      <h3 className="item_price">
         Price: £<span>{prod.price}</span>/{prod.type}
       </h3>
       <Link to={`/shop/${prod.id}`}>

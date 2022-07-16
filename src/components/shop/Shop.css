@@ -16,5 +16,12 @@
   color: rgba(61, 80, 149, 1);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
-  font-size: 3.7rem;
+  font-size: clamp(1rem, 3vw, 3.7rem);
+}
+
+@media (max-width: 800px) {
+  .shop_inner_container {
+    flex-direction: column;
+    width: 90%;
+  }
 }
