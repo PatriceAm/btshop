@@ -1,13 +1,13 @@
 .nav_container {
   background: rgba(61, 80, 149, 1);
-  min-height: 3rem;
+  min-height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   color: whitesmoke;
   border-bottom: 0.4rem solid silver;
   font-weight: 100;
-  font-size: 1.3rem;
+  font-size: clamp(1rem, 2vw, 1.3rem);
   letter-spacing: 0.2rem;
 }
 
@@ -35,7 +35,7 @@
 @media (max-width: 500px) {
   .nav_container ul {
     flex-direction: column;
-    align-items: flex-start;
     gap: 1rem;
+    padding: 1rem;
   }
 }

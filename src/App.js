@@ -7,9 +7,11 @@ import Shop from "./components/shop/Shop";
 import Home from "./components/home/Home";
 import Basket from "./components/Basket/Basket";
 import SelectedItem from "./components/selectedItem/SelectedItem";
+
 import {fillStoreR} from "./reducers/storeReducer";
-import "./App.css";
 import data from "./data.json";
+
+import "./App.css";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     dispatch(fillStoreR(initialStore));
-  });
+  }, [dispatch, initialStore]);
 
   return (
     <div>

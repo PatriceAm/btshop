@@ -1,5 +1,6 @@
 import {useSelector} from "react-redux";
 import Item from "../item/Item";
+import Today from "../today/Today";
 import "./Shop.css";
 
 const Shop = () => {
@@ -7,7 +8,7 @@ const Shop = () => {
 
   return (
     <div className="shop_container">
-      <h1>Today's offer:</h1>
+      <Today store={store} />
       <div className="shop_inner_container">
         {store.map((prod) => (
           <Item prod={prod} key={prod.name} />

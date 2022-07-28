@@ -1,19 +1,16 @@
 import {Link} from "react-router-dom";
 
 import "./Item.css";
-// import ima from "./assets/toilet_paper.png";
 
 const Item = ({prod}) => {
   return (
-    <div className="item_container">
-      <img src={prod.image} alt="product" />
-      <h3 className="item_price">
-        Price: £<span>{prod.price}</span>/{prod.type}
-      </h3>
-      <Link to={`/shop/${prod.id}`}>
-        <h2>{prod.name}</h2>
-      </Link>
-    </div>
+    <Link to={`/shop/${prod.id}`} className="item_container">
+      <img src={prod.image} alt={prod.name} />
+      <p className="item_price">
+        Price: £<span>{prod.price}</span> / {prod.type}
+      </p>
+      <p className="product_name">{prod.name}</p>
+    </Link>
   );
 };
 
